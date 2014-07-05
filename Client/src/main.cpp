@@ -1,6 +1,4 @@
 #include "pch.h"
-
-#include "SDL2/SDL.h"
 #include <iostream>
 #include "boost/archive/text_oarchive.hpp"
 #include "boost/serialization/serialization.hpp"
