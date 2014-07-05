@@ -43,13 +43,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(BoostDirectory);$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
-    <LibraryPath>$(BoostDirectory)\stage\lib\win32;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(BoostDirectory)\stage\lib;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(BoostDirectory);$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
-    <LibraryPath>$(BoostDirectory)\stage\lib\win32;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(BoostDirectory)\stage\lib;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
