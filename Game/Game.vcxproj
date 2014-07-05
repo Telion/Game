@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BoostDirectory);$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BoostDirectory)\stage\lib\win32;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BoostDirectory);$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
+    <LibraryPath>$(BoostDirectory)\stage\lib\win32;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
