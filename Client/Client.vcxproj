@@ -14,6 +14,7 @@
     <ProjectGuid>{E5534C8D-3DC2-49AF-98FF-197EED27A933}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Game</RootNamespace>
+    <ProjectName>Client</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -43,11 +44,13 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(BoostDirectory);$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
     <LibraryPath>$(BoostDirectory)\stage\lib\win32;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(BoostDirectory);$(MSBuildProjectDirectory)\include;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
     <LibraryPath>$(BoostDirectory)\stage\lib\win32;$(MSBuildProjectDirectory)\lib\x86;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,9 +96,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

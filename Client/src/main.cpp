@@ -21,6 +21,8 @@ public:
 
 int main(int argc, char** argv)
 {
+	std::cout << "This is the server!\n" << std::endl;
+
 	// Test the Boost library before creating a window.
 	// This requires that boost::serialization was fixed manually.
 	boost::archive::text_oarchive archive(std::cout);
