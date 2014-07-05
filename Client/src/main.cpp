@@ -21,7 +21,7 @@ public:
 
 int main(int argc, char** argv)
 {
-	std::cout << "This is the server!\n" << std::endl;
+	std::cout << "This is the client!\n" << std::endl;
 
 	// Test the Boost library before creating a window.
 	// This requires that boost::serialization was fixed manually.
