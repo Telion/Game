@@ -28,7 +28,7 @@ int main(int argc, char** argv)
 	boost::archive::text_oarchive archive(std::cout);
 	SerializableTest st;
 	st.a = 25;
-	st.str = "Hello, Tina!";
+	st.str = "Hello, Chris!";
 	archive & st;
 
 	SDL_Init(SDL_INIT_AUDIO | SDL_INIT_EVENTS | SDL_INIT_GAMECONTROLLER | SDL_INIT_VIDEO);
