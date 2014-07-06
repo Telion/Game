@@ -1,48 +1,47 @@
 #include "pch.h"
+
 #include <iostream>
-#include "boost/archive/text_oarchive.hpp"
-#include "boost/serialization/serialization.hpp"
-
-class SerializableTest
-{
-public:
-	int a;
-	std::string str;
-
-	template<class Archive>
-	void serialize(Archive & ar, const unsigned int version)
-	{
-		ar & a;
-		ar & str;
-	}
-};
+#include "SDL.h"
 
 int main(int argc, char** argv)
 {
-	std::cout << "This is the client!\n" << std::endl;
-
-	// Test the Boost library before creating a window.
-	// This requires that boost::serialization was fixed manually.
-	boost::archive::text_oarchive archive(std::cout);
-	SerializableTest st;
-	st.a = 25;
-	st.str = "Hello, Chris!";
-	archive & st;
-
-	SDL_Init(SDL_INIT_AUDIO | SDL_INIT_EVENTS | SDL_INIT_GAMECONTROLLER | SDL_INIT_VIDEO);
-
-	SDL_Window* window = SDL_CreateWindow("Tina game!", 50, 50, 800, 600, 0);
-	
-	SDL_Event event;
-	while(SDL_WaitEvent(&event))
+	try
 	{
-		switch(event.type)
+		std::cout << "This is the client!\n" << std::endl;
+
+		if(SDL_Init(SDL_INIT_AUDIO | SDL_INIT_EVENTS | SDL_INIT_GAMECONTROLLER | SDL_INIT_VIDEO) != 0)
+			throw std::runtime_error("Failed to initialize SDL");
+		SDL_Library sdl_library;
+
+		if(IMG_Init(0) != 0)
+			throw std::runtime_error("Failed to initialize SDL_image");
+		SDL_IMG_Library sdl_img_library;
+
+		if(TTF_Init() != 0)
+			throw std::runtime_error("Failed to initialize SDL_ttf");
+		SDL_TTF_Library sdl_ttf_library;
+
+		Window window = SDL_CreateWindow("Tina game!", 50, 50, 800, 600, 0);
+
+		SDL_Event event;
+		while(SDL_WaitEvent(&event))
 		{
-		case SDL_QUIT:
-			goto end;
+			switch(event.type)
+			{
+			case SDL_QUIT:
+				goto end;
+			}
 		}
+	end:;
 	}
-end:;
+	catch(std::exception e)
+	{
+		std::cout << "Uncaught exception: " << e.what() << std::endl;
+	}
+	catch(...)
+	{
+		std::cout << "Uncaught unknown exception" << std::endl;
+	}
 
 	return 0;
 }
