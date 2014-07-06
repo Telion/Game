@@ -4,16 +4,10 @@
 
 Logger logger;
 
-class LoggerCreator
+Logger::Logger()
 {
-public:
-	//Creates the logger object
-	LoggerCreator()
-	{
 
-	}
-};
-static LoggerCreator loggerCreator;
+}
 
 void Logger::log(Severity severity, const std::string& tag, const std::string& message)
 {

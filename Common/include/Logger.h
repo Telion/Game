@@ -29,6 +29,7 @@ class Logger
 		log_internal(severity, tag, stream, args...);
 	}
 
+
 	Logger(const Logger& rhs);
 	Logger& operator =(const Logger& rhs);
 	Logger(Logger&& rhs);
@@ -54,8 +55,6 @@ public:
 		std::stringstream ss;
 		log_internal(severity, tag, ss, arg, args...);
 	}
-
-	friend class LoggerCreator;
 };
 
 extern Logger logger;
