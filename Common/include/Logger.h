@@ -54,4 +54,8 @@ public:
 		std::stringstream ss;
 		log_internal(severity, tag, ss, arg, args...);
 	}
+
+	friend class LoggerCreator;
 };
+
+extern Logger logger;
