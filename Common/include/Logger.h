@@ -6,11 +6,13 @@ class ostream;
 
 enum class Severity
 {
-	spam,
+	spam = 0,
 	info,
 	warning,
 	error,
-	fatal
+	fatal,
+
+	numElements
 };
 
 class Logger
