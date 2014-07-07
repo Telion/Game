@@ -17,6 +17,10 @@ enum class Severity
 
 class Logger
 {
+	//members
+	std::vector<std::shared_ptr<std::ostream>> streams;
+
+	//functions
 	template <typename T>
 	void log_internal(Severity severity, const std::string& tag, std::stringstream& stream, T arg)
 	{
@@ -41,7 +45,7 @@ public:
 	Logger();
 
 	void log(Severity severity, const std::string& tag, const std::string& message);
-	void setStream(Severity severity, std::unique_ptr<std::ostream> stream);
+	void setStream(Severity severity, std::shared_ptr<std::ostream> stream);
 
 
 	template <typename T>
