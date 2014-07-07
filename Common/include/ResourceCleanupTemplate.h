@@ -15,6 +15,10 @@ public: \
 	ClassType(ResourceType t) : \
 		resource(t) \
 	{} \
+	ResourceType& get() \
+	{ \
+		return resource; \
+	} \
 	ResourceType const & get() const \
 	{ \
 		return resource; \

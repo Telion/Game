@@ -2,24 +2,14 @@
 
 #include "pch.h"
 
-#include "SDL.h"
-
 class Mesh;
 class Material;
 class Camera;
-struct IDXGISwapChain;
-struct ID3D11Device;
-struct ID3D11DeviceContext;
-struct ID3D11RenderTargetView;
 
 class Renderer
 {
-	Window window;
-
-	IDXGISwapChain* swapChain;
-	ID3D11Device* device;
-	ID3D11DeviceContext* immediateContext;
-	ID3D11RenderTargetView* renderTargetView;
+	class Impl;
+	std::shared_ptr <Impl> m;
 
 public:
 	enum class WindowType
