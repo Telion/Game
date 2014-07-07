@@ -28,6 +28,7 @@ public: \
 	{ \
 		resource = std::move(rhs.resource); \
 		rhs.resource = defaultResourceValue; \
+		return *this; \
 	} \
 	~ClassType() \
 	{ \
@@ -57,6 +58,7 @@ public: \
 	{ \
 		enabled = rhs.enabled; \
 		rhs.enabled = false; \
+		return *this; \
 	} \
 	void cleanup() \
 	{ \
