@@ -15,6 +15,10 @@ public: \
 	ClassType(ResourceType t) : \
 		resource(t) \
 	{} \
+	ResourceType& get() \
+	{ \
+		return resource; \
+	} \
 	ResourceType const & get() const \
 	{ \
 		return resource; \
@@ -28,6 +32,7 @@ public: \
 	{ \
 		resource = std::move(rhs.resource); \
 		rhs.resource = defaultResourceValue; \
+		return *this; \
 	} \
 	~ClassType() \
 	{ \
@@ -57,6 +62,7 @@ public: \
 	{ \
 		enabled = rhs.enabled; \
 		rhs.enabled = false; \
+		return *this; \
 	} \
 	void cleanup() \
 	{ \

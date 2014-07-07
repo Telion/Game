@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "SDL.h"
+#include "Renderer.h"
 
 int main(int argc, char** argv)
 {
@@ -57,7 +58,8 @@ int main(int argc, char** argv)
 			throw std::runtime_error("Failed to initialize SDL_ttf");
 		SDL_TTF_Library sdl_ttf_library;
 
-		Window window = SDL_CreateWindow("Tina game!", 50, 50, 800, 600, 0);
+		Renderer renderer("Tina game!", 1024, 768, Renderer::WindowType::windowed);
+		renderer.show();
 
 		SDL_Event event;
 		while(SDL_WaitEvent(&event))
