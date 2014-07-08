@@ -73,7 +73,7 @@ Renderer::Renderer(const std::string& title, int width, int height, WindowType w
 	sd.Windowed = TRUE;
 
 
-	D3D_FEATURE_LEVEL featureLevels = D3D_FEATURE_LEVEL_11_0;
+	D3D_FEATURE_LEVEL featureLevels = D3D_FEATURE_LEVEL_9_3;
 	UINT numFeatureLevels = 1;
 	D3D_FEATURE_LEVEL featureLevelsSupported;
 

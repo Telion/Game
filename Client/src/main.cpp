@@ -20,25 +20,7 @@ int main(int argc, char** argv)
 		using namespace std::chrono;
 		
 		std::shared_ptr<std::ostream> sharedCout(&std::cout, [](std::ostream* p){});
-		std::shared_ptr<std::ofstream> sharedErrorFile(new std::ofstream("error.txt"));
-		std::shared_ptr<std::ofstream> sharedFatalFile(new std::ofstream("fatal.txt"));
-
-		logger.setStream(Severity::spam, nullptr);
-		logger.setStream(Severity::info, sharedCout);
-		logger.setStream(Severity::warning, sharedCout);
-		logger.setStream(Severity::error, sharedErrorFile);
-		logger.setStream(Severity::fatal, sharedFatalFile);
-
-		logger.log(Severity::spam, "mainSpam", "SPAM message");
-		logger.log(Severity::spam, "mainSpam", "");
-		logger.log(Severity::info, "mainInfo", "this is a message");
-		logger.log(Severity::info, "mainInfo", "");
-		logger.log(Severity::warning, "mainWarning","this is a message");
-		logger.log(Severity::warning, "mainWarning", "");
-		logger.log(Severity::error, "mainError", "this is a message");
-		logger.log(Severity::error, "mainError", "");
-		logger.log(Severity::fatal, "mainFatal", "fatal: this is a\t message");
-		logger.log(Severity::fatal, "mainFatal", "");
+		logger.setStream(Severity::fatal, sharedCout);
 
 		
 		logger.log(Severity::warning, "tag", "Tina is ", 21, " years old", '!');
@@ -76,11 +58,11 @@ int main(int argc, char** argv)
 	}
 	catch(std::exception e)
 	{
-		logger.log(Severity::fatal, "main", "Uncaught exception: ", e.what());
+		logger.log(Severity::fatal, "main1", "Uncaught exception: ", e.what());
 	}
 	catch(...)
 	{
-		logger.log(Severity::fatal, "main", "Uncaught unknown exception");
+		logger.log(Severity::fatal, "main2", "Uncaught unknown exception");
 	}
 
 	return 0;
